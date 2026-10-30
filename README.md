@@ -22,6 +22,7 @@ The computer picks a secret word and you try to guess it one letter at a time. M
 - 🎲 Picks a **random word** from a list of 5 words
 - 🔤 Shows `_` for letters you have not guessed yet
 - ❤️ You get **6 wrong guesses**, and the game tells you how many are left
+- 🧍 A **man is drawn** piece by piece with every wrong guess, and he gets hanged if you run out of tries
 - 🚫 Ignores repeated guesses and invalid input
 
 ## 🕹️ How to Play
@@ -32,17 +33,35 @@ The computer picks a secret word and you try to guess it one letter at a time. M
 
 ## 🖥️ Example
 
+Every wrong guess adds a part to the drawing:
+
 ```text
-Welcome to Hangman!
-You can make 6 wrong guesses.
-
-Word: _ _ _ _ _ _
-Guess a letter: p
-Correct!
-
 Word: p _ _ _ _ _
 Guess a letter: z
 Wrong! You have 5 guesses left.
+
+      +---+
+      |   |
+      O   |
+          |
+          |
+          |
+    =========
+```
+
+If you run out of guesses, the full drawing appears and the game ends:
+
+```text
+      +---+
+      |   |
+      O   |
+     /|\  |
+     / \  |
+          |
+    =========
+
+Game over! The man was hanged.
+The word was: python
 ```
 
 ## ⚙️ Getting Started
@@ -64,14 +83,15 @@ python hangman.py
 | `random` | Choosing the secret word |
 | `while` loop | Keeping the game running |
 | `if-else` | Checking each guess |
-| Strings | Building the word display |
-| Lists | Storing words and guessed letters |
+| Strings | Building the word display and the drawing |
+| Lists | Storing words, guessed letters and the drawing stages |
 
 ## 📁 Project Structure
 
 ```text
 CodeAlpha_HangmanGame/
 ├── hangman.py
+├── .gitignore
 └── README.md
 ```
 
